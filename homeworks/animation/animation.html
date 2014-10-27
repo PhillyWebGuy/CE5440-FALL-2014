@@ -1,0 +1,50 @@
+<html>
+    <head>
+      <script type="text/javascript" 
+   src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+       <script> 
+        $(document).ready(function() {
+        
+            var menu = $(".myMenu li");
+            
+            $.each(menu, function(index, value) {
+                $(this).hover(function() {
+                    $(this).toggleClass("hoverClass", true);
+                });
+                $(this).mouseout(function() {
+                    $(this).toggleClass("hoverClass", false);
+                });
+            
+            });
+        
+        });
+        </script>
+        
+        
+    </head>
+    <style>
+        .myMenu li {
+            height: 20px;
+            width: 100px;
+            border: solid 1px #444;
+            color: white;
+            background-color: black;
+        }
+        .myMenu li.hoverClass {
+            color: black;
+            background-color:white;
+        }
+    </style>
+    <body>
+        
+      <ul class="myMenu">
+          <li>Home</li>
+          <li>Link 1</li>
+          <li>Link 2</li>
+          <li>Link 3</li>
+          <li>Link 4</li>
+      </ul>  
+        
+        
+    </body>
+</html>

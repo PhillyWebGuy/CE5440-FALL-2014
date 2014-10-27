@@ -1,0 +1,57 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Homework</title>
+
+</head>
+
+<body>
+
+
+<script>
+var number=[5, 10, 23, 32, 40, 45, 51, 60, 75, 80];
+
+var add=addNumbers(number);
+
+document.write(add);
+
+function addNumbers(numberList) {
+    var html = "<table><tr><td>Number</td><td>Odd/Even</td></tr>";
+    
+	for(var i = 0; i < numberList.length; i++){
+	    html += "<tr><td>" + numberList[i] + "</td><td>";
+		if (numberList[i] % 2 === 0){
+  			html += "even";
+		}
+		else {
+			html += "odd";
+		}
+		html += "</td></tr>"
+	}
+	
+	html += "</table>";
+	return html;
+}
+</script>
+
+</body>
+</html>
+<!--
+//if(number !== false && number !== true && !isNaN(number)) {
+    //return (numberList[i] % 2 == 0 + "even");
+ 	 //} else return "odd";
+     
+function isEven(number) {
+  if(number !== false && number !== true && !isNaN(number)) {
+    return number % 2 == 0;
+  } else return false;
+}
+
+
+text += (numberList[i]) + " " + "is odd" + "<br>";
+}
+return text;
+}
+-->
