@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title></title>
+      <script type="text/javascript" 
+   src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+   <script src="js/show-content-plugin.js"></script>
+   <style>
+       .navMenuOff,
+       .mainMenuOn {
+           background-color:black;
+           color: white;
+       }
+       .navMenuOn,
+       .mainMenuOff {
+           background-color: white;
+           color: black;
+       }
+       #myMainMenu {
+           list-style-type: none;
+           height: 30px;
+           width: 200px;
+           border: solid 1px black;
+           margin-left: 110px;
+       }
+       #myNavMenu {
+           list-style-type: none;
+           border: solid 1px black;
+           width: 100px;
+       }
+       #myNavMenu li {
+           padding: 5px;
+           border: solid 1px red; 
+           width: 100px;
+       }
+       #myMainMenu li {
+           display: inline;
+           float: left;
+           padding: 5px;
+           border: solid 1px red;
+       }
+   </style>
+    </head>
+    <body>
+    
+    <ul id="myMainMenu">
+        <li>
+            Link 1    
+        </li>
+        <li>
+            Link 2
+        </li>
+        <li>
+            Link 3
+        </li>
+    </ul>
+    
+        <ul id="myNavMenu">
+        <li>
+            Link 1    
+        </li>
+        <li>
+            Link 2
+        </li>
+        <li>
+            Link 3
+        </li>
+    </ul>
+    
+        <script>
+            $("#myMainMenu").toggleMenu({hoverOn: "mainMenuOn", hoverOff: "mainMenuOff"});
+            $("#myNavMenu").toggleMenu({hoverOn: "navMenuOn", hoverOff: "navMenuOff"});
+        </script>
+    </body>
+</html>

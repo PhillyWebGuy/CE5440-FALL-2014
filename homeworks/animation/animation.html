@@ -2,48 +2,104 @@
     <head>
       <script type="text/javascript" 
    src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-       <script> 
+       
+       <script>
         $(document).ready(function() {
         
             var menu = $(".myMenu li");
             
             $.each(menu, function(index, value) {
-                $(this).hover(function() {
+                $(this).mouseover(function() {
                     $(this).toggleClass("hoverClass", true);
                 });
                 $(this).mouseout(function() {
                     $(this).toggleClass("hoverClass", false);
                 });
-            
             });
-        
+            
+                
+                $(".myMenu li a").click(function(){
+                    var p = $(this).attr("rel");
+                    console.log(p);
+                    $("p").hide("fast");
+                    $("#" + p).show("slow");
+                })
+            
         });
         </script>
         
         
     </head>
     <style>
+    .myMenu,
+    p {
+        float: left;
+    }
+    p {
+        width: 200px;
+    }
         .myMenu li {
             height: 20px;
             width: 100px;
             border: solid 1px #444;
-            color: white;
             background-color: black;
+        }
+        .myMenu li a {
+            color: white;
         }
         .myMenu li.hoverClass {
             color: black;
             background-color:white;
         }
+        .myMenu li.hoverClass a {
+            color: black;
+        }
+        ul {
+            list-style-type: none;
+        }
+        ul li:hover {
+            cursor: pointer;    
+        }
+       
+        .hidden {
+            display: none;
+        }
+        
     </style>
     <body>
         
       <ul class="myMenu">
-          <li>Home</li>
-          <li>Link 1</li>
-          <li>Link 2</li>
-          <li>Link 3</li>
-          <li>Link 4</li>
-      </ul>  
+          <li><a href="">Home</a></li>
+          <li><a href="#" rel="paragraph1">Link 1</a></li>
+          <li><a href="#" rel="paragraph2">Link 2</a></li>
+          <li><a href="#" rel="paragraph3">Link 3</a></li>
+          <li><a href="#" rel="paragraph4">Link 4</a></li>
+      </ul> 
+      
+      <p id="paragraph1" class="hidden">Paragraph 1Paragraph 1Paragraph 1Paragraph 1Paragraph 1Paragraph 1
+          Paragraph 1Paragraph 1Paragraph 1Paragraph 1Paragraph 1Paragraph 1
+          Paragraph 1Paragraph 1Paragraph 1Paragraph 1Paragraph 1Paragraph 1
+          Paragraph 1Paragraph 1Paragraph 1Paragraph 1Paragraph 1Paragraph 1
+          Paragraph 1Paragraph 1Paragraph 1Paragraph 1Paragraph 1Paragraph 1
+          Paragraph 1Paragraph 1Paragraph 1Paragraph 1Paragraph 1Paragraph 1
+      </p>
+      <p id="paragraph2" class="hidden">
+      Paragraph 2 Paragraph 2 Paragraph 2
+      Paragraph 2 Paragraph 2 Paragraph 2
+      Paragraph 2 Paragraph 2 Paragraph 2
+      Paragraph 2 Paragraph 2 Paragraph 2
+      Paragraph 2 Paragraph 2 Paragraph 2
+      Paragraph 2 Paragraph 2 Paragraph 2
+      Paragraph 2 Paragraph 2 Paragraph 2Paragraph 2 Paragraph 2 Paragraph 2 Paragraph 2 Paragraph 2 Paragraph 2 
+          Paragraph 2 Paragraph 2 Paragraph 2 Paragraph 2 Paragraph 2 
+          Paragraph 2 
+      </p>
+      <p id="paragraph3" class="hidden">Paragraph3 Paragraph3Paragraph3Paragraph3Paragraph3Paragraph3 Paragraph3Paragraph3Paragraph3Paragraph3Paragraph3 Paragraph3Paragraph3Paragraph3Paragraph3Paragraph3 Paragraph3Paragraph3Paragraph3Paragraph3Paragraph3 Paragraph3Paragraph3Paragraph3Paragraph3Paragraph3Paragraph3
+          Paragraph3Paragraph3Paragraph3Paragraph3Paragraph3Paragraph3
+      </p>
+      <p id="paragraph4" class="hidden">Paragraph 4Paragraph 4Paragraph 4Paragraph 4Paragraph Paragraph 4Paragraph 4Paragraph 4Paragraph 4Paragraph Paragraph 4Paragraph 4Paragraph 4Paragraph 4Paragraph Paragraph 4Paragraph 4Paragraph 4Paragraph 4Paragraph Paragraph 4Paragraph 4Paragraph 4Paragraph 4Paragraph Paragraph 4Paragraph 4Paragraph 4Paragraph 4Paragraph 4Paragraph 4Paragraph 4
+          Paragraph 4Paragraph 4Paragraph 4
+      </p>
         
         
     </body>
