@@ -6,23 +6,32 @@
 <script src="/~bkelleher5440/jquery-1.11.1.min.js"></script>
 
 <script>
-asdfasdf
+
 	$(document).ready(function() {
 		
-		$("ul:first li").bind("mouseover", function(){
+		var menuChange = $(".petsMenu li");
 			
-			var color = $(this).css("background-color");
+			$.each(menuChange, function(index, value){
+				
+				$("ul:first li").bind("mouseover", function(){
 		
 				$(this).css("background", "#FFF");
 				$(this).css("color", "#000");
 		
 			$(this).bind("mouseout", function(){
-				$(this).css("background", color);
+				$(this).css("background", menuChange);
 				$(this).css("color", "#FFF");
 			})
 		})
+			
+		$(".petsMenu li a").click(function(){
+                    var p = $(this).attr("rel");
+                    console.log(p);
+                    $("p").hide("fast");
+                    $("#" + p).show("slow");
+		})
 	})
-		
+	})
 </script>
 
 <style>
@@ -30,8 +39,43 @@ asdfasdf
 	li {
 	 	color: #FFF;
 	 	background-color: black;
-	 	//cursor: pointer;
+	 	cursor: pointer;
 	 }
+	 
+	 .petsMenu,
+	 
+    p {
+        float: left;
+    }
+    p {
+        width: 200px;
+    }
+        .petsMenu li {
+            height: 20px;
+            width: 100px;
+            border: solid 1px #444;
+            background-color: black;
+        }
+        .petsMenu li a {
+            color: white;
+        }
+        .petsMenu li.hoverClass {
+            color: black;
+            background-color:white;
+        }
+        .petsMenu li.hoverClass a {
+            color: black;
+        }
+        ul {
+            list-style-type: none;
+        }
+        ul li:hover {
+            cursor: pointer;    
+        }
+       
+        .hidden {
+            display: none;
+        }
 
 </style>
 
@@ -39,14 +83,28 @@ asdfasdf
 
 <body>
  <h1>Pets</h1>
-        <ul>
-            <li>Dogs</li>
+        <ul class="petsMenu">
+            <li><a href="#" rel="dogs">Dogs</a></li>
             <br>
-            <li>Cats</li>
+            <li><a href="#" rel="cats">Cats</a></li>
             <br>
-            <li>Fish</li>
+            <li><a href="#" rel="fish">Fish</a></li>
             <br>
-            <li>Mice</li>
+            <li><a href="#" rel="mice">Mice</a></li>
         </ul>
+
+      <p id="dogs" class="hidden">DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS
+      </p>
+      <p id="cats" class="hidden">
+      CATS CATS CATS CATS CATS CATS
+      CATS CATS CATS CATS CATS CATS
+      </p>
+      <p id="fish" class="hidden"> FISH FISH FISH FISH FISH FISH FISH
+      FISH FISH FISH FISH FISH FISH FISH FISH FISH FISH FISH FISH FISH
+      </p>
+      <p id="mice" class="hidden">MICE MICE MICE MICE MICE MICE
+          
+      </p>
+        
 </body>
 </html>
