@@ -9,6 +9,22 @@
 
 	$(document).ready(function() {
 		
+		var menuFX = {
+			
+		}; // It's an object
+		
+		function menuFX(colorChange) {
+			this.colorChange = colorChange;
+		}; // A constructor for the object menuFX
+		
+		var hoverscript = new menuFX("orange");
+		
+		console.log(hoverscript.colorChange);
+		
+		menuFX.toggleMenu = function(colorChange){
+				console.log("You are changing the background color and the text to " + colorChange);
+		};
+		
 		$("ul:first li").bind("mouseover", function(){
 			
 			var color = $(this).css("background-color");
@@ -21,11 +37,13 @@
 				$(this).css("color", "#FFF");
 			})
 		})
+		menuFX.toggleMenu("#660033");
 	})
 		
 </script>
 
 <style>
+	
 
 	li {
 	 	color: #FFF;
