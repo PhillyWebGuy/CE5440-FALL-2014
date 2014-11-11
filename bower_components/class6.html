@@ -1,0 +1,37 @@
+<html>
+
+<head>
+
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="../bower_components/knockoutjs/dist/knockout.js"></script>
+
+
+</head>
+<body>
+    
+<p>First name: <input data-bind="value: firstName"/></p>
+<p>Last name: <input data-bind="value: lastName"/></p>
+
+    
+<h2>Hello, <span data-bind="text: fullName"></span></h2>
+
+
+<script>
+
+    function ViewModel(){
+        this.firstName = ko.observable();
+        this.lastName = ko.observable();
+        this.fullName = ko.computed(function(){
+            return this.firstName() + " "
+            + this.lastName();
+        }, this);
+    }
+    
+    ko.applyBindings(ViewModel());
+   
+</script>
+</body>
+
+
+</html>

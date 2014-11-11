@@ -1,110 +1,119 @@
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Homework 4</title>
+<title>Homework 5</title>
 
 <script src="/~bkelleher5440/jquery-1.11.1.min.js"></script>
-
-<script>
-
-	$(document).ready(function() {
-		
-		var menuChange = $(".petsMenu li");
-			
-			$.each(menuChange, function(index, value){
-				
-				$("ul:first li").bind("mouseover", function(){
-		
-				$(this).css("background", "#FFF");
-				$(this).css("color", "#000");
-		
-			$(this).bind("mouseout", function(){
-				$(this).css("background", menuChange);
-				$(this).css("color", "#FFF");
-			})
-		})
-			
-		$(".petsMenu li a").click(function(){
-                    var p = $(this).attr("rel");
-                    console.log(p);
-                    $("p").hide("fast");
-                    $("#" + p).show("slow");
-		})
-	})
-	})
-</script>
+<script src="/~bkelleher5440/library.js"></script>
 
 <style>
 
-	li {
-	 	color: #FFF;
-	 	background-color: black;
-	 	cursor: pointer;
-	 }
-	 
-	 .petsMenu,
-	 
-    p {
-        float: left;
-    }
-    p {
-        width: 200px;
-    }
-        .petsMenu li {
-            height: 20px;
-            width: 100px;
-            border: solid 1px #444;
-            background-color: black;
-        }
-        .petsMenu li a {
-            color: white;
-        }
-        .petsMenu li.hoverClass {
-            color: black;
-            background-color:white;
-        }
-        .petsMenu li.hoverClass a {
-            color: black;
-        }
-        ul {
-            list-style-type: none;
-        }
-        ul li:hover {
-            cursor: pointer;    
-        }
-       
-        .hidden {
-            display: none;
-        }
+	body{
+		margin: 0 auto;					
+		text-align: center;				
+}
+
+	.petsMenu{
+		margin: 0 auto;					
+		text-align: center;				
+		display:block;
+		width: 300px;
+		height: 60px;
+}
+
+	.petsMenu a{
+		text-decoration:none;
+		list-style:none;
+		color: #FFF;
+}
+
+	.petsMenu ul{
+		margin:0px 0 0 0;
+		padding:0px 0px 0px 0px;
+		list-style:none;
+		line-height:normal
+}
+
+	.petsMenu li{
+		float:left;
+		margin:0px 0px 0px 1px
+}
+
+	.petsMenu a{
+		display:block;
+		width:auto;
+		height:28px;
+		padding:8px 20px 0px 20px;
+		background:#383838 
+}
+
 
 </style>
 
 </head>
 
 <body>
- <h1>Pets</h1>
-        <ul class="petsMenu">
-            <li><a href="#" rel="dogs">Dogs</a></li>
-            <br>
-            <li><a href="#" rel="cats">Cats</a></li>
-            <br>
-            <li><a href="#" rel="fish">Fish</a></li>
-            <br>
-            <li><a href="#" rel="mice">Mice</a></li>
-        </ul>
 
-      <p id="dogs" class="hidden">DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS DOGS
-      </p>
-      <p id="cats" class="hidden">
-      CATS CATS CATS CATS CATS CATS
-      CATS CATS CATS CATS CATS CATS
-      </p>
-      <p id="fish" class="hidden"> FISH FISH FISH FISH FISH FISH FISH
-      FISH FISH FISH FISH FISH FISH FISH FISH FISH FISH FISH FISH FISH
-      </p>
-      <p id="mice" class="hidden">MICE MICE MICE MICE MICE MICE
-          
-      </p>
-        
+<h1>Pets</h1>
+
+<div class="petsMenu" id="menuTop"> 					
+        <ul id="mainMenu">    							
+            <li class="page_item current_page_item" style="margin-top: 0px;">
+            	<a href="#" rel="dogs">Dogs</a>
+            </li>
+            <li class="page_item page-item-2" style="margin-top: 0px;">
+            	<a href="#" rel="cats">Cats</a>
+            </li>
+            <li class="page_item page-item-3" style="margin-top: 0px;">
+            	<a href="#" rel="fish">Fish</a>
+            </li>
+            <li class="page_item page-item-973" style="margin-top: 0px;">
+            	<a href="#" rel="mice">Mice</a>
+        </ul>
+</div>
+<script>
+	
+		$(function(){
+		$("div#menuTop ul#mainMenu li").OthersFade();
+		
+		})
+
+	(function($){
+		
+ 		$.fn.OthersFade= function(options) {
+
+  		$.fn.OthersFade.defaults = {
+   			startOpacity: 1,
+   			hoverOpacity: 0,
+   			duration: 2000
+  		};
+		
+  	var options = $.extend($.fn.OthersFade.defaults, options);
+	
+  	var selector = this;
+	
+  	return this.each(function() {
+		
+		$(this).hover(
+	
+	function(){
+		
+		$(this).stop(true,false).animate({opacity: options.startOpacity}, options.duration);
+		$(selector).not(this).stop(true,false).animate({opacity: options.hoverOpacity}, options.duration);
+	}
+	,
+	
+	function(){
+	$(selector).not(this).stop(true,false).animate({opacity: options.startOpacity}, options.duration);
+
+					});
+	 		 }); 
+		};
+});
+
+
+</script>
+
 </body>
 </html>
