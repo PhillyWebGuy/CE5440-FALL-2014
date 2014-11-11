@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Homework 4</title>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+	$(document).ready(function() {
+		
+		$("ul:first li").bind("mouseover", function(){
+			
+			var color = $(this).css("background-color");
+		
+				$(this).css("background", "#FFF");
+				$(this).css("color", "#000");
+		
+			$(this).bind("mouseout", function(){
+				$(this).css("background", color);
+				$(this).css("color", "#FFF");
+			})
+		})
+	})
+		
+</script>
+
+<style>
+
+	li {
+	 	color: #FFF;
+	 	background-color: black;
+	 	cursor: pointer;
+	 	width: 200px;
+	 }
+
+</style>
+
+</head>
+
+<body>
+ <h1>Pets</h1>
+        <ul>
+            <li>Dogs</li>
+            <br>
+            <li>Cats</li>
+            <br>
+            <li>Fish</li>
+            <br>
+            <li>Mice</li>
+        </ul>
+</body>
+</html>

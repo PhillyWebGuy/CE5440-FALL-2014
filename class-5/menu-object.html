@@ -1,0 +1,66 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Homework 4</title>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+	$(document).ready(function() {
+		
+		var menuFX = {};
+		menuFX.toggleMenu = function(menuSelector, mouseOverColor, mouseOutColor) {
+			
+			var background = $(menuSelector).css("background-color");
+			var color = $(menuSelector).css("color");
+
+			$(menuSelector).bind("mouseover", function(){
+				$(this).css("background-color", mouseOverColor);
+				$(this).css("color", mouseOutColor);
+			});
+			
+			$(menuSelector).bind("mouseout", function(){
+				$(this).css("background-color", background);
+				$(this).css("color", color);		
+			});
+			
+		};
+		
+		menuFX.toggleMenu("ul:first li", "#FFF", "#000");
+		
+	});	
+
+		
+</script>
+
+<style>
+	
+	ul {
+		list-style-type: none;
+	}
+
+	li {
+	 	color: #FFF;
+	 	background-color: black;
+	 	cursor: pointer;
+	 	width: 200px;
+	 }
+
+</style>
+
+</head>
+
+<body>
+ <h1>Pets</h1>
+        <ul>
+            <li>Dogs</li>
+            <br>
+            <li>Cats</li>
+            <br>
+            <li>Fish</li>
+            <br>
+            <li>Mice</li>
+        </ul>
+</body>
+</html>
