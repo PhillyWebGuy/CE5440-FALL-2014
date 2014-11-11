@@ -18,10 +18,10 @@
 		}; // A constructor for the object menuFX
 		
 		var hoverscript = new menuFX("orange");
-		
+		 
 		console.log(hoverscript.colorChange);
 		
-		menuFX.toggleMenu = function(colorChange){
+		function toggleMenu(colorChange){
 				console.log("You are changing the background color and the text to " + colorChange);
 		};
 		
@@ -31,14 +31,14 @@
 		
 				$(this).css("background", "#FFF");
 				$(this).css("color", "#000");
+		});
 		
 			$(this).bind("mouseout", function(){
 				$(this).css("background", color);
 				$(this).css("color", "#FFF");
-			})
-		})
-		menuFX.toggleMenu("#660033");
-	})
+			});
+		});
+
 		
 </script>
 
